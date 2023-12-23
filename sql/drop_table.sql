@@ -1,0 +1,1 @@
+DROP TABLE project_worker, client, project, worker CASCADE;
