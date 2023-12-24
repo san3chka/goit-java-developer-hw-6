@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class ClientServiceTest {
 
@@ -28,30 +29,30 @@ public class ClientServiceTest {
     @Test
     public void getByIdTest() {
         long id = 1;
-        String actual = "Client 1";
+        String expected = "Client 1";
 
-        String expected = clientService.getById(id);
+        String actual = clientService.getById(id);
 
         assertEquals(actual, expected);
     }
 
     @Test
     public void createClientTest() {
-        String actual = "test";
+        String expected = "test";
 
-        clientService.create(actual);
-        String expected = clientService.getById(6);
+        clientService.create(expected);
+        String actual = clientService.getById(6);
 
         assertEquals(actual, expected);
     }
 
     @Test
     public void setNameTest() {
-        String actual = "new name";
+        String expected = "new name";
         long id = 1;
 
-        clientService.setName(actual, id);
-        String expected = clientService.getById(id);
+        clientService.setName(expected, id);
+        String actual = clientService.getById(id);
         assertEquals(actual, expected);
     }
 
@@ -62,7 +63,7 @@ public class ClientServiceTest {
         clientService.deleteById(id);
         String actual = clientService.getById(id);
 
-        assertEquals(actual, null); //null - expected
+        assertNull(actual); //null - expected
     }
 
     @Test
